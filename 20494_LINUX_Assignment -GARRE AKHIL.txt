@@ -1,0 +1,688 @@
+
+                                  
+
+                           EMPLOYEE ID : 20494 - GARRE AKHIL LINUX ASSIGNMENT
+
+
+
+user5@ETGTrainingLinux:~$ mkdir Test
+
+user5@ETGTrainingLinux:~$ ls
+a2     empolyeelist  f3       file1234         hardlink        skillset  Test
+akhil  errfile       file     file2            newfile         symlink   Test2touc
+akki   f1            file1    file234          newfile.tar.gz  sys123    userlist
+dir2   f2            file123  filebyatcommand  nohup.out       system1   win12
+
+user5@ETGTrainingLinux:~$ touch empolyeelist skillset
+
+user5@ETGTrainingLinux:~$ ls
+a2     empolyeelist  f3       file1234         hardlink        skillset  Test
+akhil  errfile       file     file2            newfile         symlink   Test2touc
+akki   f1            file1    file234          newfile.tar.gz  sys123    userlist
+dir2   f2            file123  filebyatcommand  nohup.out       system1   win12
+
+user5@ETGTrainingLinux:~$ ln skillset hardlink
+
+user5@ETGTrainingLinux:~$ ln -s skillset symlink
+user5@ETGTrainingLinux:~$ ls
+a2     empolyeelist  f3       file1234         hardlink        skillset  Test
+akhil  errfile       file     file2            newfile         symlink   Test2touc
+akki   f1            file1    file234          newfile.tar.gz  sys123    userlist
+dir2   f2            file123  filebyatcommand  nohup.out       system1   win12
+
+user5@ETGTrainingLinux:~$ rm skillset
+
+user5@ETGTrainingLinux:~$ ls -lrt
+
+total 80
+-rw-rw-r-- 1 user5 user5    0 Sep 23 06:00 a2
+-rw-rw-r-- 1 user5 user5   11 Sep 23 06:56 file1
+-rw-rw-r-- 1 user5 user5   20 Sep 23 07:00 f1
+-rw-rw-r-- 1 user5 user5    0 Sep 23 08:43 akhil
+drwxrwxr-x 2 user5 user5 4096 Sep 23 08:50 system1
+-rw-r--r-- 1 user5 user5  943 Sep 23 10:33 userlist
+-rw-r--r-- 1 user5 user5   96 Sep 23 11:06 newfile
+-rw-r--r-- 1 user5 user5   48 Sep 23 11:16 errfile
+-rw-rw-r-- 1 user5 user5   21 Sep 23 11:20 akki
+-rw-r--r-- 1 user5 user5   76 Sep 24 04:28 file123
+-rw-rw-r-- 1 user5 user5   62 Sep 24 05:01 f3
+-rw-rw-r-- 1 user5 user5   19 Sep 24 05:09 file
+-rw-rw-r-- 1 user5 user5   95 Sep 24 05:30 f2
+-rw-rw-r-- 1 user5 user5  145 Sep 24 06:20 newfile.tar.gz
+drwxrwxr-x 2 user5 user5 4096 Sep 24 06:39 win12
+drwxrwxr-x 2 user5 user5 4096 Sep 24 06:55 sys123
+drwxrwxr-x 2 user5 user5 4096 Sep 24 07:34 dir2
+-rw------- 1 user5 user5    0 Sep 24 09:49 nohup.out
+-rw-rw-r-- 1 user5 user5  140 Sep 24 10:35 filebyatcommand
+-rw-rw-r-- 1 user5 user5   59 Sep 24 10:38 file2
+-rw-rw-r-- 1 user5 user5  149 Sep 24 10:48 file1234
+-rw-rw-r-- 1 user5 user5    0 Sep 24 10:48 file234
+drwxrwxr-x 2 user5 user5 4096 Sep 25 03:48 Test
+-rw-rw-r-- 1 user5 user5    0 Sep 25 03:57 hardlink
+-rw-rw-r-- 1 user5 user5    0 Sep 25 03:57 empolyeelist
+drwxrwxr-x 2 user5 user5 4096 Sep 25 03:59 Test2
+lrwxrwxrwx 1 user5 user5    8 Sep 25 04:04 symlink -> skillset
+
+user5@ETGTrainingLinux:~$ who | wc -l
+3
+user5@ETGTrainingLinux:~$ who
+
+user2    pts/0        2021-09-24 17:13 (143.244.37.78)
+user10   pts/1        2021-09-25 04:41 (103.121.205.55)
+user5    pts/3        2021-09-25 03:43 (157.47.102.107)
+
+
+
+# this is TR 2
+
+user5@ETGTrainingLinux:~$ touch File1
+user5@ETGTrainingLinux:~$ cat >>File1
+first line
+second line
+
+user5@ETGTrainingLinux:~$ cat File1
+first line
+second line
+
+user5@ETGTrainingLinux:~$ touch file2
+user5@ETGTrainingLinux:~$ cat >>file2
+this is first line
+this is second line^C
+
+user5@ETGTrainingLinux:~$ cat file2
+first line
+2nd line
+hii akhil
+hii
+hello
+hii
+how
+how r u man
+this is first line
+this is second line
+
+user5@ETGTrainingLinux:~$ cat File1 file2
+first line
+second linesecond line
+first line
+2nd line
+hii akhil
+hii
+hello
+hii
+how
+how r u manthis is first line
+this is second linefirst line
+second linesecond line
+
+user5@ETGTrainingLinux:~$ cat file2 >> File3
+user5@ETGTrainingLinux:~$ ls File3
+File3
+user5@ETGTrainingLinux:~$ cat File3
+first line
+2nd line
+hii akhil
+hii
+hello
+hii
+how
+how r u manthis is first line
+this is second linefirst line
+second linesecond line
+
+user5@ETGTrainingLinux:~$ cat File1 file2 File3
+first line
+second linesecond line
+first line
+2nd line
+hii akhil
+hii
+hello
+hii
+how
+how r u manthis is first line
+this is second linefirst line
+second linesecond line
+first line
+2nd line
+hii akhil
+hii
+hello
+hii
+how
+how r u manthis is first line
+this is second linefirst line
+second linesecond line
+
+user5@ETGTrainingLinux:~$ cat File1 file2 File3 > errorlist 2<&1
+user5@ETGTrainingLinux:~$ cat errorlist
+first line
+second linesecond line
+first line
+2nd line
+hii akhil
+hii
+hello
+hii
+how
+how r u manthis is first line
+this is second linefirst line
+second linesecond line
+first line
+2nd line
+hii akhil
+hii
+hello
+hii
+how
+how r u manthis is first line
+this is second linefirst line
+second linesecond line
+
+user5@ETGTrainingLinux:~$ cat File1 file2 2>/dev/null
+first line
+second linesecond line
+first line
+2nd line
+hii akhil
+hii
+hello
+hii
+how
+how r u manthis is first line
+this is second linefirst line
+second linesecond line
+
+user5@ETGTrainingLinux:~$ cat File1 file2 > File3 2<&1
+user5@ETGTrainingLinux:~$ cat File3
+first line
+second linesecond line
+first line
+2nd line
+hii akhil
+hii
+hello
+hii
+how
+how r u manthis is first line
+this is second linefirst line
+second linesecond line
+
+user5@ETGTrainingLinux:~$ touch file6
+user5@ETGTrainingLinux:~$ cat File1
+first line
+second linesecond line
+
+user5@ETGTrainingLinux:~$ cp File1 file6
+user5@ETGTrainingLinux:~$ cat file6
+first line
+second linesecond line
+
+user5@ETGTrainingLinux:~$ file6 > errorlist 2<&1
+user5@ETGTrainingLinux:~$ cat errorlist
+No command 'file6' found, did you mean:
+ Command 'file2' from package 'file-kanji' (universe)
+ Command 'file' from package 'file' (main)
+ Command 'file65' from package 'xa65' (universe)
+
+user5@ETGTrainingLinux:~$ cat headfile
+line1
+line2
+line3
+line4
+line5
+line6
+line7
+lin8
+lin9
+line10
+line11
+line12
+line13
+line14
+
+user5@ETGTrainingLinux:~$ head -15 headfile | tail -5
+line10
+line11
+line12
+line13
+line14
+
+user5@ETGTrainingLinux:~$ head -10 headfile | tail -1
+line10
+user5@ETGTrainingLinux:~$ find . -mmin -5
+./file2
+user5@ETGTrainingLinux:~$ ls -s
+total 100
+0 a2            4 errorlist  4 File1     4 file6            0 nohup.out  4 userlist
+0 akhil         4 f1         4 file123   4 filebyatcommand  0 symlink    4 win12
+4 akki          4 f2         4 file1234  0 hardlink         4 sys123
+4 dir2          4 f3         4 file2     4 headfile         4 system1
+0 empolyeelist  4 file       0 file234   4 newfile          4 Test
+4 errfile       4 file1      4 File3     4 newfile.tar.gz   4 Test2
+
+user5@ETGTrainingLinux:~$ ls -s
+total 100
+0 a2            4 errorlist  4 File1     4 file6            0 nohup.out  4 userlist
+0 akhil         4 f1         4 file123   4 filebyatcommand  0 symlink    4 win12
+4 akki          4 f2         4 file1234  0 hardlink         4 sys123
+4 dir2          4 f3         4 file2     4 headfile         4 system1
+0 empolyeelist  4 file       0 file234   4 newfile          4 Test
+4 errfile       4 file1      4 File3     4 newfile.tar.gz   4 Test2
+
+user5@ETGTrainingLinux:~$ du -s . | sort -n | head -5
+164 
+  
+user5@ETGTrainingLinux:~$ ls | wc -l
+32
+
+user5@ETGTrainingLinux:~$ ls file2 | wc -l
+1
+
+user5@ETGTrainingLinux:~$ cat file2
+first line
+2nd line
+hii akhil
+hii
+hello
+hii
+how
+how r u manthis is first line
+this is second linefirst line
+second linesecond line
+modified line
+user5@ETGTrainingLinux:~$ cat file2 | wc -l
+11
+
+user5@ETGTrainingLinux:~$ find . -mtime -72
+./hardlink
+./newfile
+./userlist
+./.viminfo
+./headfile
+./dir2
+./dir2/newfile.tar
+./newfile.tar.gz
+./akhil
+./file234
+./errorlist
+./f3
+./win12
+./.bash_logout
+./.profile
+./.bashrc
+./.bash_history
+./system1
+./system1/a1
+./file
+./empolyeelist
+./.cache
+./.cache/motd.legal-displayed
+./file1
+./symlink
+./akki
+./file2
+./f1
+./file6
+./File1
+./.Xauthority
+./f2
+./sys123
+./sys123/win12
+./sys123/newfile.tar
+./filebyatcommand
+./File3
+./Test2
+./Test
+./file123
+./file1234
+./nohup.out
+./a2
+./errfile
+user5@ETGTrainingLinux:~$ cat >>headfile
+lineee11
+lone12
+lnoe13
+oeln14^C
+
+user5@ETGTrainingLinux:~$ grep on headfile
+lone12
+
+user5@ETGTrainingLinux:~$ grep ^ln headfile
+lnoe13
+
+user5@ETGTrainingLinux:~$ grep '12$' headfile
+line12
+lone12
+
+user5@ETGTrainingLinux:~$ grep '^.on' headfile
+lone12
+user5@ETGTrainingLinux:~$ grep ee headfile
+user5@ETGTrainingLinux:~$ cat headfile
+line1
+line2
+line3
+line4
+line5
+line6
+line7
+lin8
+lin9
+line10
+line11
+line12
+line13
+line14
+lineee11
+lone12
+lnoe13
+123loine
+234line
+231line
+456line
+
+user5@ETGTrainingLinux:~$ grep -v '^[0-9]' headfile
+line1
+line2
+line3
+line4
+line5
+line6
+line7
+lin8
+lin9
+line10
+line11
+line12
+line13
+line14
+lineee11
+lone12
+lnoe13
+
+user5@ETGTrainingLinux:~$ grep -c '^$' headfile
+2
+user5@ETGTrainingLinux:~$ grep -c /etc/passwd headfile
+0
+user5@ETGTrainingLinux:~$ ls -l | grep '^d'
+drwxrwxr-x 2 user5 user5 4096 Sep 24 07:34 dir2
+drwxrwxr-x 2 user5 user5 4096 Sep 25 06:26 sys123
+drwxrwxr-x 2 user5 user5 4096 Sep 23 08:50 system1
+drwxrwxr-x 2 user5 user5 4096 Sep 25 03:48 Test
+drwxrwxr-x 2 user5 user5 4096 Sep 25 03:59 Test2
+drwxrwxr-x 2 user5 user5 4096 Sep 24 06:39 win12
+user5@ETGTrainingLinux:~$ grep -c /math.h headfile
+0
+
+user5@ETGTrainingLinux:~$ cat > longlist
+first name
+second name
+third name
+fourth name
+fifth name
+sixth one
+seventh name
+eight name
+nineth name
+tenth name
+eleven name
+^C
+
+user5@ETGTrainingLinux:~$ cat longlist
+first name
+second name
+third name
+fourth name
+fifth name
+sixth one
+seventh name
+eight name
+nineth name
+tenth name
+eleven name
+
+user5@ETGTrainingLinux:~$ ls -l
+total 104
+-rw-rw-r-- 1 user5 user5    0 Sep 23 06:00 a2
+-rw-rw-r-- 1 user5 user5    0 Sep 23 08:43 akhil
+-rw-rw-r-- 1 user5 user5   21 Sep 23 11:20 akki
+drwxrwxr-x 2 user5 user5 4096 Sep 24 07:34 dir2
+-rw-rw-r-- 1 user5 user5    0 Sep 25 03:57 empolyeelist
+-rw-r--r-- 1 user5 user5   48 Sep 23 11:16 errfile
+-rw-rw-r-- 1 user5 user5  211 Sep 25 05:36 errorlist
+-rw-rw-r-- 1 user5 user5   20 Sep 23 07:00 f1
+-rw-rw-r-- 1 user5 user5   95 Sep 24 05:30 f2
+-rw-rw-r-- 1 user5 user5   62 Sep 24 05:01 f3
+-rw-rw-r-- 1 user5 user5   19 Sep 24 05:09 file
+-rw-rw-r-- 1 user5 user5   11 Sep 23 06:56 file1
+-rw-rw-r-- 1 user5 user5   34 Sep 25 05:02 File1
+-rw-r--r-- 1 user5 user5   76 Sep 24 04:28 file123
+-rw-rw-r-- 1 user5 user5  149 Sep 24 10:48 file1234
+-rw-rw-r-- 1 user5 user5  145 Sep 25 06:05 file2
+-rw-rw-r-- 1 user5 user5    0 Sep 24 10:48 file234
+-rw-rw-r-- 1 user5 user5  165 Sep 25 05:30 File3
+-rw-rw-r-- 1 user5 user5   34 Sep 25 05:33 file6
+-rw-rw-r-- 1 user5 user5  140 Sep 24 10:35 filebyatcommand
+-rw-rw-r-- 1 user5 user5    0 Sep 25 03:57 hardlink
+-rw-rw-r-- 1 user5 user5  154 Sep 25 07:09 headfile
+-rw-rw-r-- 1 user5 user5  126 Sep 25 13:02 longlist
+-rw-r--r-- 1 user5 user5   96 Sep 23 11:06 newfile
+-rw-rw-r-- 1 user5 user5  145 Sep 24 06:20 newfile.tar.gz
+-rw------- 1 user5 user5    0 Sep 24 09:49 nohup.out
+lrwxrwxrwx 1 user5 user5    8 Sep 25 04:04 symlink -> skillset
+drwxrwxr-x 2 user5 user5 4096 Sep 25 06:26 sys123
+drwxrwxr-x 2 user5 user5 4096 Sep 23 08:50 system1
+drwxrwxr-x 2 user5 user5 4096 Sep 25 03:48 Test
+drwxrwxr-x 2 user5 user5 4096 Sep 25 03:59 Test2
+-rw-r--r-- 1 user5 user5  943 Sep 23 10:33 userlist
+drwxrwxr-x 2 user5 user5 4096 Sep 24 06:39 win12
+
+user5@ETGTrainingLinux:~$ ls -r
+win12     Test     symlink         newfile   hardlink         File3    file1234  file1  f2         errfile       akki
+userlist  system1  nohup.out       longlist  filebyatcommand  file234  file123   file   f1         empolyeelist  akhil
+Test2     sys123   newfile.tar.gz  headfile  file6            file2    File1     f3     errorlist  dir2          a2
+
+user5@ETGTrainingLinux:~$ ls
+user5@ETGTrainingLinux:~$ ls -r -li
+total 104
+258878 drwxrwxr-x 2 user5 user5 4096 Sep 24 06:39 win12
+258544 -rw-r--r-- 1 user5 user5  943 Sep 23 10:33 userlist
+258999 drwxrwxr-x 2 user5 user5 4096 Sep 25 03:59 Test2
+258722 drwxrwxr-x 2 user5 user5 4096 Sep 25 03:48 Test
+258253 drwxrwxr-x 2 user5 user5 4096 Sep 23 08:50 system1
+258791 drwxrwxr-x 2 user5 user5 4096 Sep 25 06:26 sys123
+259000 lrwxrwxrwx 1 user5 user5    8 Sep 25 04:04 symlink -> skillset
+258922 -rw------- 1 user5 user5    0 Sep 24 09:49 nohup.out
+258760 -rw-rw-r-- 1 user5 user5  145 Sep 24 06:20 newfile.tar.gz
+258517 -rw-r--r-- 1 user5 user5   96 Sep 23 11:06 newfile
+258976 -rw-rw-r-- 1 user5 user5  126 Sep 25 13:02 longlist
+258125 -rw-rw-r-- 1 user5 user5  154 Sep 25 07:09 headfile
+258998 -rw-rw-r-- 1 user5 user5    0 Sep 25 03:57 hardlink
+258562 -rw-rw-r-- 1 user5 user5  140 Sep 24 10:35 filebyatcommand
+259005 -rw-rw-r-- 1 user5 user5   34 Sep 25 05:33 file6
+259001 -rw-rw-r-- 1 user5 user5  165 Sep 25 05:30 File3
+258935 -rw-rw-r-- 1 user5 user5    0 Sep 24 10:48 file234
+258465 -rw-rw-r-- 1 user5 user5  145 Sep 25 06:05 file2
+258915 -rw-rw-r-- 1 user5 user5  149 Sep 24 10:48 file1234
+258589 -rw-r--r-- 1 user5 user5   76 Sep 24 04:28 file123
+258994 -rw-rw-r-- 1 user5 user5   34 Sep 25 05:02 File1
+258464 -rw-rw-r-- 1 user5 user5   11 Sep 23 06:56 file1
+258729 -rw-rw-r-- 1 user5 user5   19 Sep 24 05:09 file
+258286 -rw-rw-r-- 1 user5 user5   62 Sep 24 05:01 f3
+258285 -rw-rw-r-- 1 user5 user5   95 Sep 24 05:30 f2
+258284 -rw-rw-r-- 1 user5 user5   20 Sep 23 07:00 f1
+259004 -rw-rw-r-- 1 user5 user5  211 Sep 25 05:36 errorlist
+258637 -rw-r--r-- 1 user5 user5   48 Sep 23 11:16 errfile
+258947 -rw-rw-r-- 1 user5 user5    0 Sep 25 03:57 empolyeelist
+258858 drwxrwxr-x 2 user5 user5 4096 Sep 24 07:34 dir2
+258617 -rw-rw-r-- 1 user5 user5   21 Sep 23 11:20 akki
+258267 -rw-rw-r-- 1 user5 user5    0 Sep 23 08:43 akhil
+258299 -rw-rw-r-- 1 user5 user5    0 Sep 23 06:00 a2
+
+user5@ETGTrainingLinux:~$ ls -slh
+total 104K
+   0 -rw-rw-r-- 1 user5 user5    0 Sep 23 06:00 a2
+   0 -rw-rw-r-- 1 user5 user5    0 Sep 23 08:43 akhil
+4.0K -rw-rw-r-- 1 user5 user5   21 Sep 23 11:20 akki
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 24 07:34 dir2
+   0 -rw-rw-r-- 1 user5 user5    0 Sep 25 03:57 empolyeelist
+4.0K -rw-r--r-- 1 user5 user5   48 Sep 23 11:16 errfile
+4.0K -rw-rw-r-- 1 user5 user5  211 Sep 25 05:36 errorlist
+4.0K -rw-rw-r-- 1 user5 user5   20 Sep 23 07:00 f1
+4.0K -rw-rw-r-- 1 user5 user5   95 Sep 24 05:30 f2
+4.0K -rw-rw-r-- 1 user5 user5   62 Sep 24 05:01 f3
+4.0K -rw-rw-r-- 1 user5 user5   19 Sep 24 05:09 file
+4.0K -rw-rw-r-- 1 user5 user5   11 Sep 23 06:56 file1
+4.0K -rw-rw-r-- 1 user5 user5   34 Sep 25 05:02 File1
+4.0K -rw-r--r-- 1 user5 user5   76 Sep 24 04:28 file123
+4.0K -rw-rw-r-- 1 user5 user5  149 Sep 24 10:48 file1234
+4.0K -rw-rw-r-- 1 user5 user5  145 Sep 25 06:05 file2
+   0 -rw-rw-r-- 1 user5 user5    0 Sep 24 10:48 file234
+4.0K -rw-rw-r-- 1 user5 user5  165 Sep 25 05:30 File3
+4.0K -rw-rw-r-- 1 user5 user5   34 Sep 25 05:33 file6
+4.0K -rw-rw-r-- 1 user5 user5  140 Sep 24 10:35 filebyatcommand
+   0 -rw-rw-r-- 1 user5 user5    0 Sep 25 03:57 hardlink
+4.0K -rw-rw-r-- 1 user5 user5  154 Sep 25 07:09 headfile
+4.0K -rw-rw-r-- 1 user5 user5  126 Sep 25 13:02 longlist
+4.0K -rw-r--r-- 1 user5 user5   96 Sep 23 11:06 newfile
+4.0K -rw-rw-r-- 1 user5 user5  145 Sep 24 06:20 newfile.tar.gz
+   0 -rw------- 1 user5 user5    0 Sep 24 09:49 nohup.out
+   0 lrwxrwxrwx 1 user5 user5    8 Sep 25 04:04 symlink -> skillset
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 25 06:26 sys123
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 23 08:50 system1
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 25 03:48 Test
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 25 03:59 Test2
+4.0K -rw-r--r-- 1 user5 user5  943 Sep 23 10:33 userlist
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 24 06:39 win12
+
+user5@ETGTrainingLinux:~$ ls -slhr
+total 104K
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 24 06:39 win12
+4.0K -rw-r--r-- 1 user5 user5  943 Sep 23 10:33 userlist
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 25 03:59 Test2
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 25 03:48 Test
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 23 08:50 system1
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 25 06:26 sys123
+   0 lrwxrwxrwx 1 user5 user5    8 Sep 25 04:04 symlink -> skillset
+   0 -rw------- 1 user5 user5    0 Sep 24 09:49 nohup.out
+4.0K -rw-rw-r-- 1 user5 user5  145 Sep 24 06:20 newfile.tar.gz
+4.0K -rw-r--r-- 1 user5 user5   96 Sep 23 11:06 newfile
+4.0K -rw-rw-r-- 1 user5 user5  126 Sep 25 13:02 longlist
+4.0K -rw-rw-r-- 1 user5 user5  154 Sep 25 07:09 headfile
+   0 -rw-rw-r-- 1 user5 user5    0 Sep 25 03:57 hardlink
+4.0K -rw-rw-r-- 1 user5 user5  140 Sep 24 10:35 filebyatcommand
+4.0K -rw-rw-r-- 1 user5 user5   34 Sep 25 05:33 file6
+4.0K -rw-rw-r-- 1 user5 user5  165 Sep 25 05:30 File3
+   0 -rw-rw-r-- 1 user5 user5    0 Sep 24 10:48 file234
+4.0K -rw-rw-r-- 1 user5 user5  145 Sep 25 06:05 file2
+4.0K -rw-rw-r-- 1 user5 user5  149 Sep 24 10:48 file1234
+4.0K -rw-r--r-- 1 user5 user5   76 Sep 24 04:28 file123
+4.0K -rw-rw-r-- 1 user5 user5   34 Sep 25 05:02 File1
+4.0K -rw-rw-r-- 1 user5 user5   11 Sep 23 06:56 file1
+4.0K -rw-rw-r-- 1 user5 user5   19 Sep 24 05:09 file
+4.0K -rw-rw-r-- 1 user5 user5   62 Sep 24 05:01 f3
+4.0K -rw-rw-r-- 1 user5 user5   95 Sep 24 05:30 f2
+4.0K -rw-rw-r-- 1 user5 user5   20 Sep 23 07:00 f1
+4.0K -rw-rw-r-- 1 user5 user5  211 Sep 25 05:36 errorlist
+4.0K -rw-r--r-- 1 user5 user5   48 Sep 23 11:16 errfile
+   0 -rw-rw-r-- 1 user5 user5    0 Sep 25 03:57 empolyeelist
+4.0K drwxrwxr-x 2 user5 user5 4.0K Sep 24 07:34 dir2
+4.0K -rw-rw-r-- 1 user5 user5   21 Sep 23 11:20 akki
+   0 -rw-rw-r-- 1 user5 user5    0 Sep 23 08:43 akhil
+   0 -rw-rw-r-- 1 user5 user5    0 Sep 23 06:00 a2
+
+user5@ETGTrainingLinux:~$ echo ls -l > storedfile
+user5@ETGTrainingLinux:~$ cat storedfile
+ls -l
+
+user5@ETGTrainingLinux:~$ tee -a stdout
+this is stdin file^C
+
+user5@ETGTrainingLinux:~$ cat stdout
+this is stdin file
+
+user5@ETGTrainingLinux:~$ mkdir tarfile
+user5@ETGTrainingLinux:~$ cd tarfile
+user5@ETGTrainingLinux:~/tarfile$ ls
+user5@ETGTrainingLinux:~/tarfile$ pwd
+/home/user5/tarfile
+user5@ETGTrainingLinux:~/tarfile$ cd /home/user
+-bash: cd: /home/user: No such file or directory
+user5@ETGTrainingLinux:~/tarfile$ cd /home/user5
+user5@ETGTrainingLinux:~$ touch tarfile.tar
+user5@ETGTrainingLinux:~$ ls
+a2     empolyeelist  f2     File1     file234          hardlink  newfile.tar.gz  symlink  tarfile.tar  win12
+akhil  errfile       f3     file123   File3            headfile  nohup.out       sys123   Test
+akki   errorlist     file   file1234  file6            longlist  stdout          system1  Test2
+dir2   f1            file1  file2     filebyatcommand  newfile   storedfile      tarfile  userlist
+user5@ETGTrainingLinux:~$ cp tarfile.tar /home/user5/tarfile
+user5@ETGTrainingLinux:~$ cd tarfile
+user5@ETGTrainingLinux:~/tarfile$ ls
+tarfile.tar
+user5@ETGTrainingLinux:~/tarfile$ cd /home/user5
+user5@ETGTrainingLinux:~$ gzip tarfile.tar
+user5@ETGTrainingLinux:~$ ls
+a2     empolyeelist  f2     File1     file234          hardlink  newfile.tar.gz  symlink  tarfile.tar.gz  win12
+akhil  errfile       f3     file123   File3            headfile  nohup.out       sys123   Test
+akki   errorlist     file   file1234  file6            longlist  stdout          system1  Test2
+dir2   f1            file1  file2     filebyatcommand  newfile   storedfile      tarfile  userlist
+
+user5@ETGTrainingLinux:~$ mkdir dir123
+user5@ETGTrainingLinux:~$ cp tarfile.tar.gz dir123
+user5@ETGTrainingLinux:~$ cd dir123
+user5@ETGTrainingLinux:~/dir123$ ls
+tarfile.tar.gz
+user5@ETGTrainingLinux:~/dir123$ gunzip newfiles.tar.gz
+gzip: newfiles.tar.gz: No such file or directory
+user5@ETGTrainingLinux:~/dir123$ gunzip tarfile.tar.gz
+user5@ETGTrainingLinux:~/dir123$ ls
+tarfile.tar
+user5@ETGTrainingLinux:~/dir123$ ls -l
+total 0
+-rw-rw-r-- 1 user5 user5 0 Sep 25 16:40 tarfile.tar
+user5@ETGTrainingLinux:~/dir123$
+
+user5@ETGTrainingLinux:~$ sleep 10
+user5@ETGTrainingLinux:~$ sleep 30
+user5@ETGTrainingLinux:~$ sleep 30 &
+[1] 11360
+user5@ETGTrainingLinux:~$ jobs
+[1]+  Running                 sleep 30 &
+user5@ETGTrainingLinux:~$ sleep 40 &
+[2] 11361
+user5@ETGTrainingLinux:~$ jobs
+[1]-  Running                 sleep 30 &
+[2]+  Running                 sleep 40 &
+user5@ETGTrainingLinux:~$ sleep 50 &
+[3] 11376
+user5@ETGTrainingLinux:~$ jobs
+[2]-  Running                 sleep 40 &
+[3]+  Running                 sleep 50 &
+user5@ETGTrainingLinux:~$ sleep 60 &
+[4] 11397
+[2]   Done                    sleep 40
+[3]   Done                    sleep 50
+user5@ETGTrainingLinux:~$ fg 3
+-bash: fg: 3: no such job
+user5@ETGTrainingLinux:~$ fg 4
+sleep 60
+^C
+user5@ETGTrainingLinux:~$ bg 4
+-bash: bg: 4: no such job
+user5@ETGTrainingLinux:~$
+
+user5@ETGTrainingLinux:~$ sleep 100 &
+[1] 11936
+user5@ETGTrainingLinux:~$ ^C
+
+user5@ETGTrainingLinux:~$ ps -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1005  9835  9793  0  80   0 -  3234 wait   pts/6    00:00:00 bash
+0 S  1005 11936  9835  0  80   0 -  1502 hrtime pts/6    00:00:00 sleep
+0 R  1005 11937  9835  0  80   0 -  6909 -      pts/6    00:00:00 ps
+
+
+
+
+
+
